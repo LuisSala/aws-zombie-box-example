@@ -1,25 +1,28 @@
 'use strict';
 
+/* == Imports == */
 var rp = require('request-promise');
 var jwt = require('jsonwebtoken');
 var crypto = require('crypto');
-var AWS = require('aws-sdk');;
+var AWS = require('aws-sdk');
+
 /* == Globals == */
 var API = {
     region: '', //'INSERT YOUR REGION HERE', // the region code where you launched the stack
     endpoint: '' //'INSERT YOUR API GATEWAY FQDN HERE INCLUDING THE HTTPS://' //i.e.: Something like ... https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com
 };
+
 var BOX_SUB_TYPES = {
     enterprise: 'enterprise',
     user: 'user'
 };
 
-/* == JWT Token information == */
-var ISS = ''
-var CLIENT_ID = '';
-var CLIENT_SECRET = '';
-var APP_KEY = '';
-var RSA_PRIVATE_KEY = ``;
+/* == Missing parameters == */
+var APP_KEY = ''; // Insert application Api Key from Backend Parameters section
+var CLIENT_ID = ''; // Insert application client_id from OAuth2 Parameters section
+var CLIENT_SECRET = ''; // Insert application client_secret from OAuth2 Parameters section
+var APP_PUB_KEY = ''; // Insert application Public Key ID from Public Key Management section
+var RSA_PRIVATE_KEY = ``; // Insert your generated private key including  -----BEGIN RSA PRIVATE KEY----- and -----END RSA PRIVATE KEY-----
 
 var endpoint = new AWS.Endpoint(API.endpoint);
 var creds = new AWS.EnvironmentCredentials('AWS');
@@ -56,11 +59,11 @@ function requestToken(sub, boxSubType) {
         header: {
             "alg": "RS256",
             "typ": "JWT",
-            "kid": APP_KEY
+            "kid": APP_PUB_KEY
         }
     };
     var tokenData = {
-        "iss": ISS,
+        "iss": APP_KEY,
         "sub": sub,
         "box_sub_type": boxSubType,
         "aud": "https://api.box.com/oauth2/token",

@@ -18,11 +18,13 @@ var BOX_SUB_TYPES = {
 };
 
 /* == Missing parameters == */
+/* == Missing parameters information == */
 var APP_KEY = ''; // Insert application Api Key from Backend Parameters section
 var CLIENT_ID = ''; // Insert application client_id from OAuth2 Parameters section
 var CLIENT_SECRET = ''; // Insert application client_secret from OAuth2 Parameters section
 var APP_PUB_KEY = ''; // Insert application Public Key ID from Public Key Management section
-var RSA_PRIVATE_KEY = ``; // Insert your generated private key including  -----BEGIN RSA PRIVATE KEY----- and -----END RSA PRIVATE KEY-----
+var ENTERPRISE_ID = ''; // Insert Enterprise ID from Account Information section in Admin console under the business settings
+var RSA_PRIVATE_KEY = ``;  // Insert your generated private key including  -----BEGIN RSA PRIVATE KEY----- and -----END RSA PRIVATE KEY-----
 
 var endpoint = new AWS.Endpoint(API.endpoint);
 var creds = new AWS.EnvironmentCredentials('AWS');
@@ -36,7 +38,7 @@ exports.handler = function(event, context, callback) {
         }).then(function(sharedLinkData) {
             console.log('Shared link url is ', sharedLinkData.shared_link.url);
             var messageData = JSON.stringify({
-                "message": sharedLinkData.shared_link.url + " (Via Box API)",
+                "message": sharedLinkData.shared_link.url,
                 "name": event.userName,
                 "channel": "default",
                 "timestamp": "" + new Date().getTime()

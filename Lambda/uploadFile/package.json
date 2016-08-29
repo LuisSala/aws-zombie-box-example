@@ -4,6 +4,7 @@
   "description": "",
   "main": "http-request-labda-test.js",
   "dependencies": {
+    "exif": "^0.6.0",
     "jsonwebtoken": "^7.1.9",
     "request-promise": "^4.1.1"
   },

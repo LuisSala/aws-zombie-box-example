@@ -15,10 +15,10 @@ var BOX_SUB_TYPES = {
 var APP_USER_NAME = 'ZombieAppUser';
 
 /* == Missing parameters information == */
-var APP_KEY = ''; // Insert application Api Key from Backend Parameters section
+var API_KEY = ''; // Insert application Api Key from Backend Parameters section
 var CLIENT_ID = ''; // Insert application client_id from OAuth2 Parameters section
 var CLIENT_SECRET = ''; // Insert application client_secret from OAuth2 Parameters section
-var APP_PUB_KEY = ''; // Insert application Public Key ID from Public Key Management section
+var PUBLIC_KEY_ID = ''; // Insert application Public Key ID from Public Key Management section
 var ENTERPRISE_ID = ''; // Insert Enterprise ID from Account Information section in Admin console under the business settings
 var RSA_PRIVATE_KEY = ``;  // Insert your generated private key including  -----BEGIN RSA PRIVATE KEY----- and -----END RSA PRIVATE KEY-----
 
@@ -59,11 +59,11 @@ function requestToken(sub, boxSubType) {
         header: {
             "alg": "RS256",
             "typ": "JWT",
-            "kid": APP_PUB_KEY
+            "kid": API_KEY
         }
     };
     var tokenData = {
-        "iss": APP_KEY,
+        "iss": PUBLIC_KEY_ID,
         "sub": sub,
         "box_sub_type": boxSubType,
         "aud": "https://api.box.com/oauth2/token",

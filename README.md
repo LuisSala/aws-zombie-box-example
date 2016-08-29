@@ -780,7 +780,7 @@ After completing this lab, survivors will be able to upload important files to B
 
 **Box Integration Architecture**
 
-1\. Sign-up for a Box Developer Account. If you already have a Box account, click the Log In tab in the header. Go to [http://www.box.com](https://app.box.com/signup/o/default_developer_offer) and create an account.
+1\. [Sign-up for a Box Developer Account](https://app.box.com/signup/o/default_developer_offer). If you already have a Box account, Log in.
 
 2\. [Create Your Application](https://cloud.app.box.com/developers/services/edit/) and generate [RSA Keypair]( https://docs.box.com/docs/app-auth#section-1-generating-an-rsa-keypair). Copy your whole private key.
 
@@ -810,7 +810,7 @@ Give your function a name such as "[Your CloudFormation Stack name]-UploadFile".
 
 10\. Repeat the same for SharedLink function.
 
-11\. When the functions is created, navigate to the API Gateway service in the AWS Management Console. Click into your "Zombie Workshop API Gateway" API. On the left Resources pane, click/highlight the "/zombie" resource so that it is selected. Then select the Actions button and choose "Create Resource". For Resource Name. Click "Create Resource" to create your box API resource.
+11\. Navigate to the API Gateway service in the AWS Management Console. Click into your "Zombie Workshop API Gateway" API. On the left Resources pane, click/highlight the "/zombie" resource so that it is selected. Then select the Actions button and choose Create Resource. For Resource Name. Click Create Resource to create your box API resource.
 
 12\. For your newly created "/box" resource, highlight it, then click Actions and select Create Method to create the POST method for the /zombie/box resource. In the dropdown, select POST. Click the checkmark to create the POST method. On the Setup page, choose an Integration Type of Lambda Function, and select the region that you are working in for the region dropdown. For the Lambda Function field, type "UploadFile" for the name of the Lambda Function. It should autofill your function name. Click Save and then OK to confirm.
 

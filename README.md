@@ -780,7 +780,7 @@ After completing this lab, survivors will be able to upload important files to B
 
 **Box Integration Architecture**
 
-1\. Sign-up for a Box Developer Account. If you already have a Box account, click the Log In tab in the header. Go to [http://www.box.com](https://app.box.com/signup/o/default_developer_offer) and create an account.
+1\. [Sign-up for a Box Developer Account](https://app.box.com/signup/o/default_developer_offer). If you already have a Box account, Log in.
 
 2\. [Create Your Application](https://cloud.app.box.com/developers/services/edit/) and generate [RSA Keypair]( https://docs.box.com/docs/app-auth#section-1-generating-an-rsa-keypair). Copy your whole private key.
 
